@@ -1,7 +1,7 @@
 # Typescript Nodejs Mongodb CRUD op
 ![](docs/screenshot.png)
 
-# Installation
+# Installation guide
 ```bash
 npm install
 npm build
