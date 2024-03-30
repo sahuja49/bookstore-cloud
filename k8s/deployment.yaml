@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: typescript-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: typescript-app
+  template:
+    metadata:
+      labels:
+        app: typescript-app
+    spec:
+      containers:
+      - name: typescript-app
+        image: gcr.io/smart-processor-412022/typescript-app:dev
+        ports:
+        - containerPort: 3000

@@ -1,0 +1,23 @@
+steps:
+  # Step 1: Build the Docker image using the Dockerfile in  repository
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/smart-processor-412022/typescript-app:dev', '.']
+
+  # Step 2: Push the Docker image to Google Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/smart-processor-412022/typescript-app:dev']
+
+  # Step 3: Set up kubectl to use the cluster's credentials
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['container', 'clusters', 'get-credentials', 'todoproject-cluster', '--zone', 'us-central1', '--project', 'smart-processor-412022']
+
+  # Step 4: Apply the Kubernetes deployment manifest
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'k8s/deployment.yaml']
+
+  # Step 5: Apply the Kubernetes service manifest
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'k8s/service.yaml']
+
+images:
+  - 'gcr.io/smart-processor-412022/typescript-app:dev'
