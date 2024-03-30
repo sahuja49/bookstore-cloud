@@ -1,4 +1,4 @@
-# Typescript Nodejs Mongodb CRUD operations
+# Typescript Nodejs Mongodb CRUD op
 ![](docs/screenshot.png)
 
 # Installation
