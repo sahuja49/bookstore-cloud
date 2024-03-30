@@ -9,7 +9,7 @@ steps:
 
   # Step 3: Set up kubectl to use the cluster's credentials
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['container', 'clusters', 'get-credentials', 'todoproject-cluster', '--zone', 'us-central1', '--project', 'smart-processor-412022']
+    args: ['container', 'clusters', 'get-credentials', 'todoproject-cluster', '--region', 'us-central1', '--project', 'smart-processor-412022']
 
   # Step 4: Apply the Kubernetes deployment manifest
   - name: 'gcr.io/cloud-builders/kubectl'
