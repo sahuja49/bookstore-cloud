@@ -1,11 +1,11 @@
 steps:
   # Step 1: Build the Docker image using the Dockerfile in the repository
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/to-do-418823/typescriptto-repository/typescript-app:tag1', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/to-do-418823/typescriptto-repository/typescript-app:v1, '.']
 
   # Step 2: Push the Docker image to Google Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/to-do-418823/typescriptto-repository/typescript-app:tag1']
+    args: ['push', 'us-central1-docker.pkg.dev/to-do-418823/typescriptto-repository/typescript-app:v1']
 
     # Step 3: Set up kubectl to use the cluster's credentials
   - name: 'gcr.io/cloud-builders/gcloud'
