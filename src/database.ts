@@ -3,7 +3,7 @@ import { MONGODB_URI } from "./config";
 
 export async function connectToMongodb() {
   try {
-    await connect("mongodb://admin:admin@mongodb-prod:27017/tododb");
+    await connect(MONGODB_URI);
   } catch (error) {
     console.log("Error:", error);
   }
